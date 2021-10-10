@@ -10,7 +10,7 @@ const selectLoadStatus = createSelector(
   (state) => state.loadStatus
 );
 
-const selectCustomer = createSelector(
+const selectCustomers = createSelector(
   selectCustomerState,
   (state) => state.customers
 );
@@ -37,7 +37,7 @@ const selectSelectedCustomerId = createSelector(
 
 // derived selector
 const selectById = (id: number) =>
-  createSelector(selectCustomer, (state: Customer[]) =>
+  createSelector(selectCustomers, (state: Customer[]) =>
     state.find((p) => p.id === id)
   );
 
@@ -48,8 +48,8 @@ const isLoaded = createSelector(
 
 // export
 export const fromCustomer = {
-  selectAll: selectCustomer,
-  selectById,
+  selectCustomers,
   selectLoadStatus,
+  selectById,
   isLoaded,
 };

@@ -1,17 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Customer } from '../customer';
-import { CustomerAppState } from '../+state/customer.reducer';
-import { CustomerActions } from '../+state/customer.actions';
-import { fromCustomer } from '../+state/customer.selectors';
+import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { fromCustomer } from '../+state/customer.selectors';
 
 @Component({
   templateUrl: './customers.component.html',
-  styleUrls: ['./customers.component.scss']
+  styleUrls: ['./customers.component.scss'],
 })
-export class CustomersComponent  {
-  customers$ = this.store.select(fromCustomer.selectAll);
+export class CustomersComponent {
+  customers$ = this.store.select(fromCustomer.selectCustomers);
 
   constructor(private store: Store) {}
 }

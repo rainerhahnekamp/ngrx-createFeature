@@ -1,39 +1,15 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { createSelector } from '@ngrx/store';
 import { Customer } from '../customer';
-import { customerFeatureKey, State } from './customer.reducer';
+import { customerFeature } from './customer.reducer';
 
-const selectCustomerState = createFeatureSelector<State>(customerFeatureKey);
-
-// property selectors
-const selectLoadStatus = createSelector(
-  selectCustomerState,
-  (state) => state.loadStatus
-);
-
-const selectCustomers = createSelector(
-  selectCustomerState,
-  (state) => state.customers
-);
-
-const selectCountries = createSelector(
-  selectCustomerState,
-  (state) => state.countries
-);
-
-const selectCustomerGroups = createSelector(
-  selectCustomerState,
-  (state) => state.customerGroups
-);
-
-const selectHasError = createSelector(
-  selectCustomerState,
-  (state) => state.hasError
-);
-
-const selectSelectedCustomerId = createSelector(
-  selectCustomerState,
-  (state) => state.selectedCustomerId
-);
+const {
+  selectCustomers,
+  selectLoadStatus,
+  selectCountries,
+  selectCustomerGroups,
+  selectHasError,
+  selectSelectedCustomerId,
+} = customerFeature;
 
 // derived selector
 const selectById = (id: number) =>

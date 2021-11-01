@@ -14,7 +14,6 @@ import {
 } from 'rxjs/operators';
 import { Customer } from '../customer';
 import { CustomerActions } from './customer.actions';
-import { CustomerAppState } from './customer.reducer';
 import { fromCustomer } from './customer.selectors';
 
 @Injectable()
@@ -74,6 +73,6 @@ export class CustomerEffects {
     private actions$: Actions,
     private http: HttpClient,
     private router: Router,
-    private store: Store<CustomerAppState>
+    private store: Store
   ) {}
 }

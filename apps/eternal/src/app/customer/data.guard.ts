@@ -4,14 +4,13 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { CustomerActions } from './+state/customer.actions';
-import { CustomerAppState } from './+state/customer.reducer';
 import { fromCustomer } from './+state/customer.selectors';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataGuard implements CanActivate {
-  constructor(private store: Store<CustomerAppState>) {}
+  constructor(private store: Store) {}
 
   canActivate(): Observable<boolean> {
     this.store.dispatch(CustomerActions.get());

@@ -1,15 +1,18 @@
 import { createSelector } from '@ngrx/store';
 import { Customer } from '../customer';
-import { customerFeature } from './customer.reducer';
+import {adapter, customerFeature} from "./customer.reducer";
 
 const {
-  selectCustomers,
   selectLoadStatus,
   selectCountries,
   selectCustomerGroups,
   selectHasError,
   selectSelectedCustomerId,
+  selectCustomerState
 } = customerFeature;
+
+// selector from entityAdapter
+const selectCustomers = createSelector(selectCustomerState, adapter.getSelectors().selectAll);
 
 // derived selector
 const selectById = (id: number) =>

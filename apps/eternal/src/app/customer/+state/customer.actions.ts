@@ -28,7 +28,7 @@ const remove = createAction(
   props<{ customer: Customer }>()
 );
 const removed = createAction(
-  '[CUSTOMER] Removed',
+  '[Customer] Removed',
   props<{ customers: Customer[] }>()
 );
 
